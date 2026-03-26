@@ -347,20 +347,107 @@
       <li><span class="icon">📧</span> PDF stiže direktno na vaš email</li>
     </ul>
 
-    <!--
-      ZAMENI SA MAILERLITE EMBED-OM:
-      MailerLite → Forms → tvoja forma → Embed → kopiraj HTML
-    -->
     <div class="form-wrap">
-      <form action="YOUR_MAILERLITE_ACTION_URL" method="post" target="_blank">
-        <div style="display:flex;flex-direction:column;gap:0.7rem;">
-          <input type="text"  name="fields[name]"  placeholder="Vaše ime 👤" required />
-          <input type="email" name="fields[email]" placeholder="Vaš email 📧"  required />
-          <button type="submit" class="btn-cta">
-            🎁 Pošalji mi bojanke besplatno!
-          </button>
+      <!-- MailerLite embed — styled to match site design -->
+      <style>
+        #mlb2-38832975.ml-form-embedContainer { display:block !important; width:100% !important; }
+        #mlb2-38832975.ml-form-embedContainer .ml-form-embedWrapper {
+          background: transparent !important; border: none !important; border-radius: 0 !important;
+          box-shadow: none !important; display: block !important;
+          width: 100% !important; max-width: 100% !important; padding: 0 !important; margin: 0 !important;
+        }
+        #mlb2-38832975.ml-form-embedContainer .ml-form-embedWrapper.embedForm { max-width: 100% !important; width: 100% !important; }
+        #mlb2-38832975.ml-form-embedContainer .ml-form-embedBody { padding: 0 !important; }
+        #mlb2-38832975.ml-form-embedContainer .ml-form-embedBody .ml-form-formContent { margin: 0 0 0.7rem 0 !important; }
+        /* Input */
+        #mlb2-38832975.ml-form-embedContainer .ml-form-embedBody .ml-form-fieldRow input[type="email"] {
+          width: 100% !important; padding: 0.85rem 1.1rem !important;
+          border: 2.5px solid var(--jungle-lt) !important; border-radius: 14px !important;
+          font-family: 'Nunito', sans-serif !important; font-size: 1rem !important;
+          color: var(--text-dark) !important; background: var(--white) !important;
+          outline: none !important; transition: border-color 0.2s, box-shadow 0.2s !important;
+          box-sizing: border-box !important; height: auto !important; line-height: 1.5 !important;
+        }
+        #mlb2-38832975.ml-form-embedContainer .ml-form-embedBody .ml-form-fieldRow input[type="email"]:focus {
+          border-color: var(--jungle) !important; box-shadow: 0 0 0 3px rgba(45,106,47,0.15) !important;
+        }
+        #mlb2-38832975.ml-form-embedContainer .ml-form-embedBody .ml-form-fieldRow input[type="email"]::placeholder { color: #AABFAA !important; }
+        /* Button */
+        #mlb2-38832975.ml-form-embedContainer .ml-form-embedBody .ml-form-embedSubmit { margin: 0 !important; float: none !important; width: 100% !important; }
+        #mlb2-38832975.ml-form-embedContainer .ml-form-embedBody .ml-form-embedSubmit button.primary {
+          width: 100% !important; padding: 1rem !important;
+          background: linear-gradient(135deg, var(--coral) 0%, var(--coral-dark) 100%) !important;
+          color: white !important; font-family: 'Baloo 2', cursive !important;
+          font-weight: 800 !important; font-size: 1.05rem !important;
+          border: none !important; border-radius: 14px !important; cursor: pointer !important;
+          transition: transform 0.15s, box-shadow 0.15s !important;
+          box-shadow: 0 4px 18px rgba(255,107,107,0.45) !important;
+          letter-spacing: 0.02em !important; line-height: 1.4 !important; height: auto !important;
+        }
+        #mlb2-38832975.ml-form-embedContainer .ml-form-embedBody .ml-form-embedSubmit button.primary:hover {
+          transform: translateY(-2px) !important; box-shadow: 0 8px 28px rgba(255,107,107,0.55) !important;
+        }
+        /* Success */
+        #mlb2-38832975.ml-form-embedContainer .ml-form-successBody { padding: 0 !important; }
+        #mlb2-38832975.ml-form-embedContainer .ml-form-successBody .ml-form-successContent h4 {
+          font-family: 'Baloo 2', cursive !important; color: var(--jungle) !important;
+          font-size: 1.2rem !important; text-align: center !important;
+        }
+        #mlb2-38832975.ml-form-embedContainer .ml-form-successBody .ml-form-successContent p {
+          color: var(--text-mid) !important; text-align: center !important; font-family: 'Nunito', sans-serif !important;
+        }
+        .ml-form-recaptcha { margin-bottom: 0.7rem !important; }
+      </style>
+
+      <style type="text/css">@import url("https://assets.mlcdn.com/fonts.css?version=1773928");</style>
+      <style type="text/css">
+        .ml-form-embedSubmitLoad{display:inline-block;width:20px;height:20px}.g-recaptcha{transform:scale(1);-webkit-transform:scale(1);transform-origin:0 0;-webkit-transform-origin:0 0}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}.ml-form-embedSubmitLoad:after{content:" ";display:block;width:11px;height:11px;margin:1px;border-radius:50%;border:4px solid #fff;border-color:#fff #fff #fff transparent;animation:ml-form-embedSubmitLoad 1.2s linear infinite}@keyframes ml-form-embedSubmitLoad{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}.ml-subscribe-close{width:30px;height:30px;background:url('https://assets.mlcdn.com/ml/images/default/modal_close.png') no-repeat;background-size:30px;cursor:pointer;margin-top:-10px;margin-right:-10px;position:absolute;top:0;right:0}.ml-error input,.ml-error textarea,.ml-error select{border-color:red!important}.ml-error .label-description,.ml-error .label-description p,.ml-error .label-description p a,.ml-error label:first-child{color:#ff0000!important}
+      </style>
+
+      <div id="mlb2-38832975" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-38832975">
+        <div class="ml-form-align-center">
+          <div class="ml-form-embedWrapper embedForm">
+            <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
+              <div class="ml-form-embedContent" style="margin-bottom:0;"></div>
+              <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/2211538/forms/182685281913145243/subscribe" data-code="" method="post" target="_blank">
+                <div class="ml-form-formContent">
+                  <div class="ml-form-fieldRow ml-last-item">
+                    <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
+                      <input aria-label="email" aria-required="true" type="email" class="form-control" data-inputmask="" name="fields[email]" placeholder="Vaš email 📧" autocomplete="email">
+                    </div>
+                  </div>
+                </div>
+                <div class="ml-form-recaptcha ml-validate-required" style="float:left;">
+                  <style>.ml-form-recaptcha{margin-bottom:20px}.ml-form-recaptcha.ml-error iframe{border:solid 1px #ff0000}@media screen and (max-width:480px){.ml-form-recaptcha{width:220px!important}.g-recaptcha{transform:scale(0.78);-webkit-transform:scale(0.78);transform-origin:0 0;-webkit-transform-origin:0 0}}</style>
+                  <script src="https://www.google.com/recaptcha/api.js"></script>
+                  <div class="g-recaptcha" data-sitekey="6Lf1KHQUAAAAAFNKEX1hdSWCS3mRMv4FlFaNslaD"></div>
+                </div>
+                <input type="hidden" name="ml-submit" value="1">
+                <div class="ml-form-embedSubmit">
+                  <button type="submit" class="primary">🎁 Pošalji mi bojanke besplatno!</button>
+                  <button disabled="disabled" style="display:none;" type="button" class="loading">
+                    <div class="ml-form-embedSubmitLoad"></div>
+                    <span class="sr-only">Loading...</span>
+                  </button>
+                </div>
+                <input type="hidden" name="anticsrf" value="true">
+              </form>
+            </div>
+            <div class="ml-form-successBody row-success" style="display:none;">
+              <div class="ml-form-successContent">
+                <h4>Hvala na prijavi! 🎉</h4>
+                <p>Uspešno ste se prijavili. Vaša bojanka je upravo poslata na vašu e-mail adresu. Uživajte u bojenju!</p>
+              </div>
+            </div>
+          </div>
         </div>
-      </form>
+      </div>
+      <script>
+        function ml_webform_success_38832975(){var $=ml_jQuery||jQuery;$('.ml-subscribe-form-38832975 .row-success').show();$('.ml-subscribe-form-38832975 .row-form').hide();}
+      </script>
+      <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v95037e5bac78f29ed026832ca21a7c7b" type="text/javascript"></script>
+      <script>fetch("https://assets.mailerlite.com/jsonp/2211538/forms/182685281913145243/takel")</script>
+
       <p class="privacy-note">Nema spam-a. Samo magija od Mika i Žike. Odjavite se kad god. 🌴</p>
     </div>
   </div>
