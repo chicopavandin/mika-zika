@@ -250,7 +250,8 @@
     /* PREVIEW */
     .preview {
       background: var(--cream);
-      padding: 4rem 1.5rem;
+      /* padding: 4rem 1.5rem; */
+      height: 2px;
       text-align: center;
     }
     .preview h2 {
@@ -309,6 +310,156 @@
       /* .chars { gap: 0.9rem; } */
       .char-card { min-width: 130px; }
     }
+
+    /* BONUS TEASER */
+    .bonus-teaser {
+      background: linear-gradient(160deg, #1A3A1B 0%, #2D6A2F 55%, #1e4d20 100%);
+      padding: 5rem 1.5rem 5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .bonus-teaser::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(ellipse 60% 40% at 20% 50%, rgba(126,200,127,0.10) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 40% at 80% 50%, rgba(245,217,122,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .bonus-teaser-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .bonus-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: rgba(245,217,122,0.18);
+      border: 1.5px solid rgba(245,217,122,0.45);
+      color: var(--sand);
+      font-family: 'Baloo 2', cursive;
+      font-weight: 700;
+      font-size: 0.8rem;
+      padding: 0.3rem 1rem;
+      border-radius: 100px;
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .bonus-teaser h2 {
+      font-family: 'Baloo 2', cursive;
+      font-weight: 800;
+      font-size: clamp(1.5rem, 4.5vw, 2.2rem);
+      color: var(--white);
+      margin-bottom: 0.6rem;
+      line-height: 1.2;
+    }
+    .bonus-teaser h2 span { color: var(--sand); }
+    .bonus-teaser > .bonus-teaser-inner > p {
+      color: rgba(255,255,255,0.72);
+      font-size: 0.97rem;
+      margin-bottom: 2.5rem;
+      line-height: 1.65;
+    }
+
+    /* two-image layout */
+    .bonus-images {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+    .bonus-img-wrap {
+      position: relative;
+      width: 320px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 16px 48px rgba(0,0,0,0.45);
+      flex-shrink: 0;
+    }
+    .bonus-img-wrap img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      display: block;
+      transform: scale(1.04);
+      transition: filter 0.3s, transform 0.3s;
+    }
+    .bonus-img-wrap:hover img {
+      transform: scale(1.06);
+    }
+    /* lock overlay */
+    .bonus-lock {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      pointer-events: none;
+    }
+    .bonus-lock .lock-icon {
+      font-size: 2.4rem;
+      line-height: 1;
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.6));
+    }
+    .bonus-lock .lock-label {
+      font-family: 'Baloo 2', cursive;
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.9);
+      background: rgba(0,0,0,0.45);
+      backdrop-filter: blur(4px);
+      padding: 0.25rem 0.85rem;
+      border-radius: 100px;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    /* pack label bottom */
+    .bonus-img-wrap .pack-label {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(0deg, rgba(0,0,0,0.75) 0%, transparent 100%);
+      padding: 1.2rem 1rem 0.85rem;
+      font-family: 'Baloo 2', cursive;
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.88);
+    }
+
+    /* cta row */
+    .bonus-cta-row {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .bonus-arrow {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: rgba(255,255,255,0.55);
+      font-size: 0.85rem;
+      font-family: 'Nunito', sans-serif;
+      animation: pulse-arrow 1.8s ease-in-out infinite;
+    }
+    @keyframes pulse-arrow {
+      0%, 100% { transform: translateY(0); opacity: 0.55; }
+      50% { transform: translateY(4px); opacity: 0.85; }
+    }
+    .bonus-cta-note {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.4);
+    }
+
+    @media (max-width: 680px) {
+      .bonus-img-wrap { width: 100%; max-width: 340px; }
+    }
   </style>
 </head>
 <body>
@@ -328,12 +479,12 @@
 
     <p class="subtitle">
       Pre nego što knjiga zvanično izađe —<br>
-      preuzmite <strong>tri besplatne stranice za bojenje</strong>.<br>
+      preuzmite <strong>besplatne stranice za bojenje</strong>.<br>
       Za bojice, vodene boje i male umetnike! 🖍️
     </p>
 
     <ul class="benefits">
-      <li>
+      <!-- <li>
         <span class="icon">
           <img src="mika-glava.png" alt="" style="width: 24px;">
         </span> Mika kopa rupu u pesku</li>
@@ -342,7 +493,7 @@
       </span> Žika se igra u vodi</li>
       <li><span class="icon">
         <img src="vuk-ajkula-glava.png" alt="" style="width: 24px;">
-      </span> Vuk-Ajkula ljutito pliva</li>
+      </span> Vuk-Ajkula ljutito pliva</li> -->
       <li><span class="icon">🖨️</span> Čiste linije, A4 format, odmah za štampu</li>
       <li><span class="icon">📧</span> PDF stiže direktno na vaš email</li>
     </ul>
@@ -481,7 +632,7 @@
 </section>
 
 <section class="preview">
-  <h2>Šta je u PDF-u? 🖍️</h2>
+  <!-- <h2>Šta je u PDF-u? 🖍️</h2>
   <p>Tri scene sa plaže, čiste linije, odmah za štampu.</p>
   <div class="preview-cards">
     <div class="preview-card">
@@ -504,6 +655,35 @@
       </span>
       <h4>Stranica 3</h4>
       <p>Vuk-Ajkula</p>
+    </div>
+  </div> -->
+</section>
+
+<section class="bonus-teaser">
+  <div class="bonus-teaser-inner">
+    <div class="bonus-badge">✨ Samo za pretplatnike</div>
+    <h2>Još <span>3 bonus bojanke</span> čekaju! 🎁</h2>
+    <p>
+      Prijavite se i dobijate prvu seriju odmah —<br>
+      a nekoliko dana kasnije stiže i <strong style="color:var(--sand)">bonus paket</strong> sa tri potpuno nove scene direktno na email.
+    </p>
+
+    <div class="bonus-images">
+      <!-- Image 1: beach scenes (658198741 jpg) -->
+      <div class="bonus-img-wrap">
+        <img src="img/bonus-pack-1.jpg" alt="Bonus bojanka paket 1" loading="lazy">
+        <div class="pack-label">Paket 1 · Na plaži 🏖️</div>
+      </div>
+      <!-- Image 2: jungle/easter scenes (instagram-uskrs) -->
+      <div class="bonus-img-wrap">
+        <img src="img/bonus-pack-2.jpeg" alt="Bonus bojanka paket 2">
+        <div class="pack-label">Paket 2 · Vaskršnji 🥚🌿</div>
+      </div>
+    </div>
+
+    <div class="bonus-cta-row">
+      <div class="bonus-arrow">▼ Prijavite se gore i dobijate sve besplatno ▼</div>
+      <p class="bonus-cta-note">Bez spam-a. Odjavite se kad god želite. 🌴</p>
     </div>
   </div>
 </section>
